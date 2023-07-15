@@ -1,0 +1,269 @@
+/* website default */
+
+body {
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Navbar */
+.nav-right-computer-mode {
+    display: block;
+}
+
+.nav-right-mobile-mode {
+    display: none;
+}
+
+.navbar {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+.nav-left {
+    flex: none;
+    width: 200px;
+    margin-left: 10px;
+}
+.nav-right-computer-mode {
+    flex: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-item {
+    margin: 0 10px;
+}
+
+.side-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    min-height: 3870px;
+    background-color: wheat;
+    box-shadow: -0.1px 0px 50px grey;
+    z-index: 1;
+
+}
+
+.side-menu div {
+    text-align: center;
+    margin: 25px 0 0 0;
+}
+
+/* Welcome to MyHome */
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    height: 250px;
+}
+.welcome-text {
+    font-size: 40px;
+}
+
+
+/* img gallery */
+.computer-mode {
+    display: block;
+}
+
+.pad-mode {
+    display: none;
+}
+
+/* top : 3 elements in one row */
+.gallery {
+    margin: auto;
+    padding-top: 20px;
+}
+.gallery-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-top-element {
+    display: flex;
+    flex: none;
+    align-items: center;
+    width: 380px;
+    height: 50px;
+    margin: 10px;
+    background-color: lightblue;
+}
+.top-img-div {
+    height: 50px;
+}
+.text-top {
+    margin-left: 10px;
+}
+.top-img {
+    width: 80px;
+    height: 50px;
+}
+/* cetner part : 6 elements in one row */
+.gallery-center {
+    display: flex;
+    justify-content: center;
+}
+.gallery-center-element {
+    flex:none;
+    width: 180px;
+    margin: 10px;
+    background-image: url(./img.JPG);
+    background-size: cover;
+    background-position: center;
+}
+
+.center-img-div {
+    width: 180px;
+}
+
+.star-img {
+    display: block;
+    width: 30%;
+    padding-top: 5%;
+    padding-left: 65%;
+    object-fit: cover;
+}
+
+.text-center {
+    flex: none;
+    text-align: center;
+    background-color: lightblue;
+    opacity: 70%;
+    width: 100%;
+    margin-top: 109px;
+}
+
+.text-center p {
+    margin: 0;
+}
+
+/* bottom part : 6 elements in one row */
+.gallery-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+/* RWD for pad-mode (600px-1200px) */
+@media (max-width:1200px) {
+    .computer-mode {
+        display: none;
+    }
+
+    .pad-mode {
+        display: block;
+    }
+
+    .gallery-top-1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gallery-top-element-1 {
+        display: flex;
+        flex: none;
+        align-items: center;
+        width: calc(calc(90% - 40px) / 2);
+        margin: 10px;
+        background-color: lightblue;
+    }
+
+    .gallery-top-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gallery-top-element-2 {
+        display: flex;
+        flex: none;
+        align-items: center;
+        width: calc(90% - 20px);
+        margin: 10px;
+        background-color: lightblue;
+    }
+
+    .gallery-pad-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;        
+    }
+    
+    .gallery-pad-center-element {
+        flex: none;
+        width: calc(calc(90% - 80px) / 4);
+        margin: 10px;
+        background-image: url(./img.JPG);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .center-img-div {
+        width: 100%;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+}
+
+/* RWD for mobile-mode (360px-600px) */
+@media (max-width:600px) {
+    .nav-right-computer-mode {
+        display: none;
+    }
+    
+    .nav-right-mobile-mode {
+        display: flex;
+        flex: auto;
+        height: 28px;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .dropdown-img {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+    }
+
+    .nav-right-mobile-mode:hover .side-menu {
+        display: block;
+    }
+
+    .gallery-top-1 {
+        flex-wrap: wrap;
+    }
+
+    .gallery-top-element-1 {
+        width: 90%;
+    }
+
+    .gallery-top-2 {
+        flex-wrap: wrap;
+    }
+
+    .gallery-top-element-2 {
+        width: 90%;
+    }
+
+    .gallery-pad-center {
+        flex-wrap: wrap;     
+    }
+    
+    .gallery-pad-center-element {
+        width: 90%;
+    }
+
+    .star-img {
+        display: block;
+        width: 20%;
+        padding-top: 2.5%;
+        padding-left: 75%;
+        object-fit: cover;
+    }
+}
