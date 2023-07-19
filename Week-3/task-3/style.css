@@ -167,7 +167,7 @@ body {
         width: calc(calc(90% - 80px) / 4);
         margin: 10px;
         background-color: lightblue;
-        height: 260px;
+        height: 320px;
     }
 
     .center-img-div {
@@ -183,6 +183,7 @@ body {
 
     .text-center {
         text-align: center;
+        padding: 10px 5px;
     }
 
 }
