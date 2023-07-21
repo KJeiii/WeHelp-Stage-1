@@ -61,7 +61,7 @@ for n in range(3):
         soup = BeautifulSoup(data,"html.parser")
 
 
-print(movies_data)
+
 
 with open("movie.txt","wt") as file :
     for movie in movies_data:
