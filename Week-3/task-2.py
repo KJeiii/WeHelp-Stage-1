@@ -16,25 +16,16 @@ movies_data = []
 for n in range(3):
     # scrab first page
     amount_of_post = len(soup.select(".title a"))
-    print(amount_of_post)
     for n in range(amount_of_post):
-
-        post_data = {}
 
         # find title
         title = soup.select(".title a")[n].string
-        post_data["title"] = title
-        print(title)
-
 
         #find credit
         try:
             credit = soup.select("span.hl")[n].string
         except:
             credit = 0
-        finally:
-            post_data["credit"] = credit
-        print(credit)
 
         # find post url
         post_url = "https://www.ptt.cc/" + soup.select(".title a")[n]["href"]
@@ -48,7 +39,10 @@ for n in range(3):
 
         # find date
         post_date = post_soup.select("span.article-meta-value")[3].string
-        post_data["post_date"] = post_date
+
+        # create a string conssiting of title,credit,date
+        post_data = f"{title},{credit},{post_date}"
+        print(post_data)
 
         # movies_data append post_data
         movies_data.append(post_data)
@@ -68,6 +62,11 @@ for n in range(3):
 
 
 print(movies_data)
+
+with open("movie.txt","wt") as file :
+    for movie in movies_data:
+        file.write(movie + "\n")
+
     
         
 
