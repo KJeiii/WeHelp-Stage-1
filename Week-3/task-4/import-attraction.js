@@ -267,14 +267,18 @@ const LoadMore = async() => {
         for ( let i = elementStartToAdd; i < elementStartToAdd + 6; i++ ) {
             let galleryCenterElementDiv = document.createElement("div");
             galleryCenterElementDiv.setAttribute("class", "gallery-center-element");
+
             let centerImgDiv = document.createElement("div");
             centerImgDiv.setAttribute("class", "center-img-div");
+
             let img = document.createElement("img");
             img.setAttribute("class", "center-img");
             img.setAttribute("src", "https://" + picAndAttraction[i][1]);
+
             let textCenterDiv = document.createElement("div");
             textCenterDiv.setAttribute("class", "text-center");
             textCenterDiv.textContent = picAndAttraction[i][0];
+
             centerImgDiv.appendChild(img);
             galleryCenterElementDiv.appendChild(centerImgDiv);
             galleryCenterElementDiv.appendChild(textCenterDiv);
@@ -287,19 +291,24 @@ const LoadMore = async() => {
         for ( let i = elementStartToAdd + 6; i < elementStartToAdd + 12; i++ ) {
             let galleryCenterElementDiv = document.createElement("div");
             galleryCenterElementDiv.setAttribute("class", "gallery-center-element");
+
             let centerImgDiv = document.createElement("div");
             centerImgDiv.setAttribute("class", "center-img-div");
+
             let img = document.createElement("img");
             img.setAttribute("class", "center-img");
             img.setAttribute("src", "https://" + picAndAttraction[i][1]);
+
             let textCenterDiv = document.createElement("div");
             textCenterDiv.setAttribute("class", "text-center");
             textCenterDiv.textContent = picAndAttraction[i][0];
+
             centerImgDiv.appendChild(img);
             galleryCenterElementDiv.appendChild(centerImgDiv);
             galleryCenterElementDiv.appendChild(textCenterDiv);
             galleryBottomDiv2.appendChild(galleryCenterElementDiv);
         };
+
         computerModeDiv.append(galleryBottomDiv1, galleryBottomDiv2);
     
 
@@ -308,12 +317,16 @@ const LoadMore = async() => {
         // cuz elements to load more only appear at the bottom of web
 
         // gallery-pad-center
-        let galleryPadCenterDiv = document.querySelectorAll(".gallery-pad-center");
+        
         // pass first row and second row,
         // cuz elements to load more only appear at the bottom of third row
 
         // third row
-        for ( let i = elementStartToAdd + 11 ; i < elementStartToAdd + 15;  i++) {
+        let padModeDiv = document.querySelector(".pad-mode");
+        let galleryPadCenterDiv1 = document.createElement("div");
+        galleryPadCenterDiv1.setAttribute("class", "gallery-pad-center");
+
+        for ( let i = elementStartToAdd ; i < elementStartToAdd + 4;  i++) {
             let galleryPadCenterElemetDiv = document.createElement("div");
             galleryPadCenterElemetDiv.setAttribute("class", "gallery-pad-center-element");
 
@@ -332,8 +345,60 @@ const LoadMore = async() => {
             galleryPadCenterElemetDiv.appendChild(centerImgDiv);
             galleryPadCenterElemetDiv.appendChild(textCenterDiv);
 
-            galleryPadCenterDiv[2].appendChild(galleryPadCenterElemetDiv);        
+            galleryPadCenterDiv1.appendChild(galleryPadCenterElemetDiv);        
         };
+
+        let galleryPadCenterDiv2 = document.createElement("div");
+        galleryPadCenterDiv2.setAttribute("class", "gallery-pad-center");
+
+        for ( let i = elementStartToAdd + 4 ; i < elementStartToAdd + 8;  i++) {
+            let galleryPadCenterElemetDiv = document.createElement("div");
+            galleryPadCenterElemetDiv.setAttribute("class", "gallery-pad-center-element");
+
+            let centerImgDiv = document.createElement("div");
+            centerImgDiv.setAttribute("class", "center-img-div");
+
+            let img = document.createElement("img");
+            img.setAttribute("class", "center-img");
+            img.setAttribute("src", "https://" + picAndAttraction[i][1]);
+
+            let textCenterDiv = document.createElement("div");
+            textCenterDiv.setAttribute("class", "text-center");
+            textCenterDiv.textContent = picAndAttraction[i][0];
+
+            centerImgDiv.appendChild(img);
+            galleryPadCenterElemetDiv.appendChild(centerImgDiv);
+            galleryPadCenterElemetDiv.appendChild(textCenterDiv);
+
+            galleryPadCenterDiv2.appendChild(galleryPadCenterElemetDiv);        
+        };
+
+        let galleryPadCenterDiv3 = document.createElement("div");
+        galleryPadCenterDiv3.setAttribute("class", "gallery-pad-center");
+
+        for ( let i = elementStartToAdd + 8 ; i < elementStartToAdd + 12;  i++) {
+            let galleryPadCenterElemetDiv = document.createElement("div");
+            galleryPadCenterElemetDiv.setAttribute("class", "gallery-pad-center-element");
+
+            let centerImgDiv = document.createElement("div");
+            centerImgDiv.setAttribute("class", "center-img-div");
+
+            let img = document.createElement("img");
+            img.setAttribute("class", "center-img");
+            img.setAttribute("src", "https://" + picAndAttraction[i][1]);
+
+            let textCenterDiv = document.createElement("div");
+            textCenterDiv.setAttribute("class", "text-center");
+            textCenterDiv.textContent = picAndAttraction[i][0];
+
+            centerImgDiv.appendChild(img);
+            galleryPadCenterElemetDiv.appendChild(centerImgDiv);
+            galleryPadCenterElemetDiv.appendChild(textCenterDiv);
+
+            galleryPadCenterDiv3.appendChild(galleryPadCenterElemetDiv);        
+        };
+
+        padModeDiv.append(galleryPadCenterDiv1, galleryPadCenterDiv2, galleryPadCenterDiv3);
 
         // add 12 to elementStartToAdd for next Loadmore()
         elementStartToAdd += 12;
