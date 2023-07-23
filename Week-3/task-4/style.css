@@ -116,6 +116,23 @@ body {
     justify-content: center;
 }
 
+/* loadmore part whose elements is below 12  : use flex-wrap */
+.gallery-load-more {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.gallery-load-more-element {
+    flex: none;
+    width: 180px;
+    margin: 10px;
+    background-color: lightblue;
+}
+
+
+
 /* Load more button */
 .btn-div {
     display: flex;
@@ -194,6 +211,19 @@ body {
         height: 320px;
     }
 
+    .gallery-pad-load-more {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .gallery-pad-load-more-element {
+        width: calc(calc(90% - 80px) / 4);
+        margin: 10px;
+        background-color: lightblue;
+        height: 320px;
+    }
+
     .center-img-div {
         width: 100%;
     }
@@ -254,5 +284,11 @@ body {
     
     .gallery-pad-center-element {
         width: 90%;
+    }
+
+    .gallery-pad-load-more-element {
+        width: 90%;
+        margin: 10px;
+        background-color: lightblue;
     }
 }
