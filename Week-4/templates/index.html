@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-4</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="header">歡迎光臨，請輸入帳號密碼</div>
+    <form class="login">
+        <div class="login-title">登入系統</div>
+            <div class="account-div">
+                <label for="account-label">帳號</label>
+                <input type="text" class="account-input" name="account">
+            </div>
+            <div class="password-div">
+                <label for="password-label">密碼</label>
+                <input type="password" class="password-input" name="password">
+            </div>
+            <div class="agreement-div">
+                <label for="agreement-label">同意條款</label>
+                <input type="checkbox" class="checkbox">
+            </div>
+            <div class="submit-btn">
+                <input type="submit" value="登入" onclick="CheckAgreement()">
+            </div>
+    </form>
+
+
+
+    <script src="../static/javascript.js"></script>
+</body>
+</html>

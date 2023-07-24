@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: wheat;
+    font-size: 20px;
+}
+
+.login-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.account-div {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.password-div {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+
+}
+
+.agreement-div {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.submit-btn {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+label {
+    margin-right: 10px;
+}
