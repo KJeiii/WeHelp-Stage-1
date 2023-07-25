@@ -27,6 +27,7 @@ def signin():
         if account == "test" or password == "test":
             session["SIGNED-IN"] = True
             return redirect(url_for("member"))
+    return redirect(url_for("home"))
         
 # create success page  
 @app.route("/member")
