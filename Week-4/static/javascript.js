@@ -6,6 +6,7 @@ let passwordInput = document.querySelector(".password-input")
 
 const CheckAgreement = () => {
     if ( checkbox.checked !== true ) {
+        submitBtn.setAttribute("disabled",true);
         alert("Please check the checkbox first");
 
         // clear user info in the url
@@ -19,6 +20,7 @@ const CheckAgreement = () => {
         formLoginDiv.setAttribute("action","");
         formLoginDiv.setAttribute("method", "");
     }else{
+        submitBtn.setAttribute("disabled", false);
         formLoginDiv.setAttribute("action","/signin");
         formLoginDiv.setAttribute("method", "post");
     }
