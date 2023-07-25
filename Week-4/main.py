@@ -9,9 +9,26 @@ def home():
 
 @app.route("/signin", methods = ['POST'])
 def signin():
-    account = request.form["account"]
-    password = request.form["password"]
-    return f'{account} & {password}'
+    if request.method == "POST":
+        account = request.form["account"]
+        password = request.form["password"]
+
+        if account == "" or password == "":
+            msg = "Please enter account and password."
+            return redirect(url_for("error", message=msg))
+        if account != "test" or password != "test":
+            msg = "Account or password is incorrect."
+            return redirect(url_for("error", message=msg))
+        if account == "test" or password == "test":
+            return redirect(url_for("member"))
+            
+@app.route("/member")
+def member():
+    return render_template("member.html")
+
+@app.route("/error/<message>")
+def error(message):
+    return render_template("error.html", message=message)
 
 
 app.run(debug=True)
