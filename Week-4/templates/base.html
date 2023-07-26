@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="header">  {% block header %}{% endblock %}</div>
-    <form class="login">
+    <form class="login" action="/signin" method="post">
         {% block content %}{% endblock %}
     </form>
 
