@@ -57,7 +57,7 @@ def signout():
 # create calculator
 @app.route("/square", methods = ["GET"])
 def Calc():
-    num = request.form["number"]
+    num = int(request.args["number"])
     num = num*num
     return render_template("cal-result.html", number = num)
 
