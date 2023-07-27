@@ -1,10 +1,5 @@
-let submitBtn = document.querySelector(".submit-btn");
-let checkbox = document.querySelector(".checkbox");
-let formLoginDiv = document.querySelector(".login")
-let accountInput = document.querySelector(".account-input")
-let passwordInput = document.querySelector(".password-input")
-
 const CheckAgreement = () => {
+    let checkbox = document.querySelector(".checkbox");
     if ( checkbox.checked !== true ) {
 
         // block form sending info to server 
@@ -12,3 +7,13 @@ const CheckAgreement = () => {
         alert("Please check the checkbox first");
     }
 };
+
+const CheckInt = () => {
+    let numInputElement = document.querySelector(".input-num")
+    let inputNum = Number(numInputElement.value);
+    if ( !Number.isInteger(inputNum) || inputNum <= 0) {
+        event.preventDefault();
+        alert("Please enter a positive integer.");
+    };
+
+}
