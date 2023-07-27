@@ -19,9 +19,9 @@ def signin():
         password = request.form["password"]
 
         if account == "" or password == "":
-            return redirect(url_for("error_empty"))
+            return redirect("/error?message=Please enter account and password.")
         if account != "test" or password != "test":
-            return redirect(url_for("error_incorrect"))
+            return redirect("/error?message=Account or password is incorrect.")
         if account == "test" or password == "test":
             session["SIGNED-IN"] = True
             return redirect(url_for("member"))
@@ -34,18 +34,11 @@ def member():
         return render_template("member.html")
     return redirect(url_for("home"))
 
-# create error_empty page
+# create error page
 @app.route("/error")
-def error_empty():
-    msg = request.args.get("message", "Please enter account and password")
-    return render_template("error.html", message = msg)
-
-
-# create error_incorrect page
-@app.route("/error/")
-def error_incorrect():
-    msg =request.args.get("message", "Account or password is incorrect")
-    return render_template("error.html", message = msg)
+def error():
+    msg = request.args["message"]
+    return render_template("error.html", error_message = msg)
 
 # create signout endpoint
 @app.route("/signout")
