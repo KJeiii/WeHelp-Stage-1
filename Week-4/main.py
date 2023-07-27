@@ -47,12 +47,17 @@ def signout():
     return redirect(url_for("home"))
 
 
-# create calculator
-@app.route("/square", methods = ["GET"])
-def Calc():
-    num = int(request.args["number"])
-    num = num*num
-    return render_template("cal-result.html", number = num)
+# receive num endpoint
+@app.route("/receivenum", methods = ["GET"])
+def receive_num():
+    num_receive = int(request.args["number"])
+    return redirect(url_for("square", number = num_receive))
+
+# calculate and create square page
+@app.route("/square/<number>")
+def square(number):
+    num_cal = int(number) * int(number)
+    return render_template("square.html", number = num_cal)
 
 app.run(port=3000, debug=True)
 
