@@ -47,13 +47,14 @@ def signout():
     return redirect(url_for("home"))
 
 
-# receive num endpoint
-@app.route("/receivenum", methods = ["GET"])
-def receive_num():
-    num_receive = int(request.args["number"])
-    return redirect(url_for("square", number = num_receive))
+# receive num endpoint  >> replaced by using JS window.location object to redirect page
+# @app.route("/receivenum", methods = ["GET"])
+# def receive_num():
+#     num_receive = int(request.args["number"])
+#     return redirect(url_for("square", number = num_receive))
 
 # calculate and create square page
+
 @app.route("/square/<number>")
 def square(number):
     num_cal = int(number) * int(number)

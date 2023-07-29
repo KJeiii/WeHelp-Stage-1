@@ -9,11 +9,14 @@ const CheckAgreement = () => {
 };
 
 const CheckInt = () => {
-    let numInputElement = document.querySelector(".input-num")
+    event.preventDefault();
+    let numInputElement = document.querySelector(".input-num");
     let inputNum = Number(numInputElement.value);
     if ( !Number.isInteger(inputNum) || inputNum <= 0) {
-        event.preventDefault();
         alert("Please enter a positive integer.");
+    }else{
+        let originUrl = window.location.origin;
+        let squareUrl = originUrl + "/square/" + numInputElement.value;
+        window.location.replace(squareUrl);
     };
-
 }
