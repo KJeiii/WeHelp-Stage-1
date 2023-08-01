@@ -1,10 +1,3 @@
-<style>
-    body {
-        background-color : light-brown;
-    }
-</style>
-
-
 # Task-3
 
 ## 1 & 2. create five data and show all them
