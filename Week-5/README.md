@@ -29,6 +29,14 @@
 
 # Task-4
 
+## 1. count all data
 
+![task-4_1_count](./task-4_1_count.png)
+
+## 2. sum all the follow_count
+![task-4_2_sum](./task-4_2_sum.png)
+
+## 3. take average of all the follow_count
+![task-4_3_avg](./task-4_3_avg.png)
 
 # Task-5
