@@ -25,8 +25,6 @@
 ![task-3_7_update name](./task-3_7_update%20name.png)
 
 
-
-
 # Task-4
 
 ## 1. count all data
@@ -39,4 +37,17 @@
 ## 3. take average of all the follow_count
 ![task-4_3_avg](./task-4_3_avg.png)
 
+
 # Task-5
+
+## 1. get all content and name
+
+![task-5_1_join name and content](./task-5_1_join%20name%20and%20content.png)
+
+## 2. get all content and name if username is test
+
+![task-5_2_name nad content if username is test](./task-5_2_name%20and%20content%20if%20username%20is%20test.png)
+
+## 3. get average of like count if username is test
+
+![task-5_3_avg like count](./task-5_3_avg%20like%20count.png)
