@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: wheat;
+    font-size: 20px;
+}
+
+.signup-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signin-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-subdiv {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.signin-subdiv {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.submit-btn-div {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+label {
+    margin-right: 10px;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin: 10px;
+}

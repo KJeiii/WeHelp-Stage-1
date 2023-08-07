@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block header %}歡迎光臨，請註冊登入系統{% endblock %}
+{% block content %} 
+    <div class="signup-title">註冊帳號</div>
+    <div class="signup-subdiv">
+        <label for="name-label">姓名</label>
+        <input type="text" class="name-input" name="name">
+    </div>
+    <div class="signup-subdiv">
+        <label for="account-label">帳號</label>
+        <input type="text" class="account-input" name="account">
+    </div>
+    <div class="signup-subdiv">
+        <label for="password-label">密碼</label>
+        <input type="password" class="password-input" name="password">
+    </div>
+    <div class="submit-btn-div">
+        <input type="submit" value="註冊" class = "submit-btn" onclick="Check()">
+    </div>
+
+    <hr>
+{% endblock %}
+
+{% block square %}
+    <div class="signin-title">登入系統</div>
+    <div class="signin-subdiv">
+        <label for="account-label">帳號</label>
+        <input type="text" class="account-input" name="account">
+    </div>
+    <div class="signin-subdiv">
+        <label for="password-label">密碼</label>
+        <input type="password" class="password-input" name="password">
+    </div>
+    <div class="submit-btn-div">
+        <input type="submit" value="登入" class = "submit-btn" onclick="Check()">
+    </div>
+{% endblock %}

@@ -1,24 +1,35 @@
 from flask import Flask, render_template, redirect, url_for
-from flask_login import LoginManager, login_user, logout_user, login_required
 
+# ----- create Flask server -----
 app = Flask(__name__)
 
+
+# ----- connect to local MySQL and build customized MySQL object
+
+
+# ----- create endpoints -----
 @app.route("/")
 def home():
+    return render_template("index.html")
+
+@app.route("/signup", methods = ["POST"])
+def signup():
     pass
 
-@app.route("/register", methods = ["POST", "GET"])
-def register():
+@app.route("/signin", methods = ["POST"])
+def signin():
     pass
 
-@app.route("/login", methods = ["POST", "GET"])
-def login():
+@app.route("/signout")
+def signout():
     pass
 
-@app.route("/member_page")
-def member_page():
+@app.route("/member")
+def member():
     pass
 
-@app.route("/logout")
-def logout():
+@app.route("/deleteMessage")
+def delete_message():
     pass
+
+app.run(debug=True)

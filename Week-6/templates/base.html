@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week-6</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="header">  {% block header %}{% endblock %}</div>
+    <form class="signup" action="/signup" method="post">
+        {% block content %}{% endblock %}
+    </form>
+
+    <form class="signin" action="/signin" method="post">
+        {% block square %}{% endblock %}
+    </form>
+
+    <script src="../static/javascript.js"></script>
+</body>
+</html>
