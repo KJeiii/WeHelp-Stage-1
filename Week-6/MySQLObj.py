@@ -11,15 +11,25 @@ class MySQLtool:
         self.password = password
 
     def Signup(self):
-        # 研究一下這邊，為什麼用host = self.dbhost無法順利把資料傳入
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor()
 
-            # create sting for adding new data
+            # create string for adding new data
             insert_string = "insert into member (name, username, password) values ('{}', '{}', '{}')"
             
             cursor.execute(insert_string.format(self.name, self.account, self.password))
             connection.commit()
+
+    def Search(self):
+        with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
+            cursor = connection.cursor()
+
+            # create string for selecting data
+            select_string = "select count(*) from member where username = '{}'"
+            cursor.execute(select_string.format(self.account))
+            data = cursor.fetchall()
+            return data
+            
 
     # fucntion is not completed yet!!
     def Delete_Post(self):
@@ -29,3 +39,5 @@ class MySQLtool:
             drop_string = "delete from member where id = 7"
             cursor.execute(drop_string)
 
+# a = MySQLtool("Bob", 111, 123)
+# print(a.Search())
