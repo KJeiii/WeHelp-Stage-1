@@ -5,13 +5,14 @@ class MySQLtool:
         self.dbhost = "localhost"
         self.dbuser = "root"
         self.dbpassword = "Jae_84265" #完成後要刪掉，改成env 
+        self.database = 'website'
         self.name = name
         self.account = account
         self.password = password
 
-    def SignUp(self):
+    def Signup(self):
         # 研究一下這邊，為什麼用host = self.dbhost無法順利把資料傳入
-        with connect(host = "localhost", user = "root", password = "Jae_84265", database = "website") as connection:
+        with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor()
 
             # create sting for adding new data
@@ -22,7 +23,7 @@ class MySQLtool:
 
     # fucntion is not completed yet!!
     def Delete_Post(self):
-        with connect(host = "localhost", user = "root", password = "Jae_84265", database = "website") as connection:
+        with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor()
 
             drop_string = "delete from member where id = 7"
