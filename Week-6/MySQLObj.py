@@ -1,23 +1,30 @@
 from mysql.connector import connect, cursor
 
 class MySQLtool:
-    def __init__(self, name, account, password):
-        self.dbhost = "host",
-        self.dbuser = "root",
-        self.dbpassword = "Jae_84265", #完成後要刪掉，改成env 
-        self.name = name,
-        self.account = account,
+    def __init__(self, name:str, account:str, password:str):
+        self.dbhost = "localhost"
+        self.dbuser = "root"
+        self.dbpassword = "Jae_84265" #完成後要刪掉，改成env 
+        self.name = name
+        self.account = account
         self.password = password
-    
+
     def SignUp(self):
-        with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword) as connection:
+        # 研究一下這邊，為什麼用host = self.dbhost無法順利把資料傳入
+        with connect(host = "localhost", user = "root", password = "Jae_84265", database = "website") as connection:
             cursor = connection.cursor()
-            cursor.execute("user website")
 
             # create sting for adding new data
-            insert_string = f"insert into member(name, username, password) values({self.name}, {self.account}, {self.password})"
-            cursor.execute(insert_string)
-            cursor.commit()
+            insert_string = "insert into member (name, username, password) values ('{}', '{}', '{}')"
+            
+            cursor.execute(insert_string.format(self.name, self.account, self.password))
+            connection.commit()
 
-test = MySQLtool("test3", "123123", "123123")
-test.SignUp()
+    # fucntion is not completed yet!!
+    def Delete_Post(self):
+        with connect(host = "localhost", user = "root", password = "Jae_84265", database = "website") as connection:
+            cursor = connection.cursor()
+
+            drop_string = "delete from member where id = 7"
+            cursor.execute(drop_string)
+
