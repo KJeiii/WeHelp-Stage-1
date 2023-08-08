@@ -5,18 +5,18 @@
     <div class="signup-title">註冊帳號</div>
     <div class="signup-subdiv">
         <label for="name-label">姓名</label>
-        <input type="text" class="name-input" name="name">
+        <input type="text" class="signup-input" name="name">
     </div>
     <div class="signup-subdiv">
         <label for="account-label">帳號</label>
-        <input type="text" class="account-input" name="account">
+        <input type="text" class="signup-input" name="account">
     </div>
     <div class="signup-subdiv">
         <label for="password-label">密碼</label>
-        <input type="password" class="password-input" name="password">
+        <input type="password" class="signup-input" name="password">
     </div>
     <div class="submit-btn-div">
-        <input type="submit" value="註冊" class = "submit-btn" onclick="Check()">
+        <input type="submit" value="註冊" class = "submit-btn" onclick="Check('.signup-input')">
     </div>
 
     <hr>
@@ -26,13 +26,13 @@
     <div class="signin-title">登入系統</div>
     <div class="signin-subdiv">
         <label for="account-label">帳號</label>
-        <input type="text" class="account-input" name="account">
+        <input type="text" class="signin-input" name="account">
     </div>
     <div class="signin-subdiv">
         <label for="password-label">密碼</label>
-        <input type="password" class="password-input" name="password">
+        <input type="password" class="signin-input" name="password">
     </div>
     <div class="submit-btn-div">
-        <input type="submit" value="登入" class = "submit-btn" onclick="Check()">
+        <input type="submit" value="登入" class = "submit-btn" onclick="Check('.signin-input')">
     </div>
 {% endblock %}

@@ -20,7 +20,7 @@ class MySQLtool:
             cursor.execute(insert_string.format(self.name, self.account, self.password))
             connection.commit()
 
-    def Search(self):
+    def Signup_check(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor()
 
@@ -28,8 +28,21 @@ class MySQLtool:
             select_string = "select count(*) from member where username = '{}'"
             cursor.execute(select_string.format(self.account))
             data = cursor.fetchall()
+
+            if data[0][0] > 0 :
+                return False
+            else:
+                return True
+    
+    def Signin(self):
+        with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
+            cursor = connection.cursor() 
+
+            # create string for selecting data
+            select_string = "select * from member where username = '{}' and password = '{}'"
+            cursor.execute(select_string.format(self.account, self.password))
+            data = cursor.fetchall()
             return data
-            
 
     # fucntion is not completed yet!!
     def Delete_Post(self):
@@ -39,5 +52,5 @@ class MySQLtool:
             drop_string = "delete from member where id = 7"
             cursor.execute(drop_string)
 
-# a = MySQLtool("Bob", 111, 123)
-# print(a.Search())
+a = MySQLtool("Bob", '101', '101')
+print(a.Signin())
