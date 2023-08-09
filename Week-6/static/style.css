@@ -46,3 +46,11 @@ a {
     text-align: center;
     margin: 10px;
 }
+
+.submit-btn {
+    margin-left: 10px;
+}
+
+.comment-subdiv {
+    text-align: center;
+}

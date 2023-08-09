@@ -66,7 +66,7 @@ def member():
         name = session['name']
         db = MySQLtool()
         comments = db.Show_comment()
-        return render_template("member.html", name = name, comments = comments)
+        return render_template("member.html", id = id, name = name, comments = comments)
     except:
         return redirect(url_for('home'))
     
