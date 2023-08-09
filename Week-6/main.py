@@ -5,13 +5,11 @@ from MySQLObj import MySQLtool
 app = Flask(__name__)
 app.secret_key = "623762c54fa8b12dd34845ab69326520f4242be8363b80ba2240ca0a53877060"
 
-# ----- connect to local MySQL and build customized MySQL object
-
-
 # ----- create endpoints -----
 @app.route("/")
 def home():
     return render_template("index.html")
+
 
 @app.route("/signup", methods = ["POST"])
 def signup():
@@ -31,9 +29,10 @@ def signup():
     db.Signup()
     return redirect(url_for("home"))
 
+
 @app.route("/signin", methods = ["POST"])
 def signin():
-    # ----- get info using POST method from signup form -----
+    # ----- get info using POST method from signin form -----
     account = request.form['account']
     password = request.form['password']
 
@@ -52,23 +51,31 @@ def signin():
     return redirect(url_for('member'))
 
 
-
 @app.route("/signout")
 def signout():
-    pass
+    session.clear()
+    return redirect(url_for('home'))
+
 
 @app.route("/member")
 def member():
-    name = session['name']
-    return render_template("member.html", name = name)
+    try:
+        id = session['id']
+        name = session['name']
+        return render_template("member.html", name = name)
+    except:
+        return redirect(url_for('home'))
+    
 
 @app.route("/error")
 def error():
     msg = request.args['message']
     return render_template("error.html", error_message = msg)
 
+
 @app.route("/deleteMessage")
 def delete_message():
     pass
+
 
 app.run(debug=True, port="3000")

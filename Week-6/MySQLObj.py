@@ -51,6 +51,3 @@ class MySQLtool:
 
             drop_string = "delete from member where id = 7"
             cursor.execute(drop_string)
-
-a = MySQLtool("Bob", '101', '101')
-print(a.Signin())
