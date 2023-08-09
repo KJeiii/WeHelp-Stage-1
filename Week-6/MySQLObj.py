@@ -1,10 +1,11 @@
 from mysql.connector import connect, cursor
+import os
 
 class MySQLtool:
     def __init__(self, **kargs):
         self.dbhost = "localhost"
         self.dbuser = "root"
-        self.dbpassword = "Jae_84265" #完成後要刪掉，改成env 
+        self.dbpassword = os.environ.get("dbpassword")
         self.database = 'website'
         self.id = kargs.get('id')
         self.name = kargs.get("name")  
@@ -51,7 +52,7 @@ class MySQLtool:
             cursor = connection.cursor() 
 
             # create string for selecting data
-            select_string = "select name,content from member inner join message on member.id = message.member_id"
+            select_string = "select id,name,content from member inner join message on member.id = message.member_id"
             cursor.execute(select_string)
             data = cursor.fetchall()
             return data
