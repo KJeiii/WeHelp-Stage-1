@@ -20,7 +20,7 @@ def signup():
 
     # ----- use customized MySQLtool module to connecting, searching and creating new data -----
     # 1. Build MySQL connnection
-    db = MySQLtool(name, account, password)
+    db = MySQLtool(name = name, account = account, password = password)
 
     # 2. Use Signup_Check and Signup methods; 
     # if it has already existed, do not let it signup; otherwise, let it go.
@@ -38,9 +38,11 @@ def signin():
 
     # ----- use customized MySQLtool module to connecting, searching and creating new data -----
     # 1. Build MySQL connnection
-    db = MySQLtool("", account, password)
+    db = MySQLtool(account = account, password = password)
 
-    # 2. Use Signin() method : check whether userbame and passwrod bote matches data in db
+    # 2. Use Signin() method : check whether username and password both matches data in db
+    # if not match : redirect to error page
+    # if match : redirect to member page
     result = db.Signin()
     if len(result) < 1 :
         return redirect('/error?message=帳號或密碼輸入錯誤')
