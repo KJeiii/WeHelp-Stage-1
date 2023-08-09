@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}歡迎光臨，請註冊登入系統{% endblock %}
-{% block content %} 
+{% block signup %} 
     <div class="signup-title">註冊帳號</div>
     <div class="signup-subdiv">
         <label for="name-label">姓名</label>
@@ -22,7 +22,7 @@
     <hr>
 {% endblock %}
 
-{% block square %}
+{% block siginin %}
     <div class="signin-title">登入系統</div>
     <div class="signin-subdiv">
         <label for="account-label">帳號</label>
@@ -35,4 +35,11 @@
     <div class="submit-btn-div">
         <input type="submit" value="登入" class = "submit-btn" onclick="Check('.signin-input')">
     </div>
+{% endblock %}
+
+{% block comment %}
+    {% for data in comments %}
+        <div class="comment-subdiv"><strong>data[0] : </strong>data[1]</div>
+    {% endfor %}
+
 {% endblock %}

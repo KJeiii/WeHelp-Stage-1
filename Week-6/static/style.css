@@ -46,3 +46,9 @@ a {
     text-align: center;
     margin: 10px;
 }
+
+.comment-subdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

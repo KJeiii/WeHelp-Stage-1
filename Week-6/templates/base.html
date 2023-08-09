@@ -9,12 +9,17 @@
 <body>
     <div class="header">  {% block header %}{% endblock %}</div>
     <form class="signup" action="/signup" method="post">
-        {% block content %}{% endblock %}
+        {% block signup %}{% endblock %}
     </form>
 
     <form class="signin" action="/signin" method="post">
-        {% block square %}{% endblock %}
+        {% block signin %}{% endblock %}
     </form>
+
+    <div class="comment-div">
+        {% block comment %}{% endblock %}
+    </div>
+
 
     <script src="../static/javascript.js"></script>
 </body>
