@@ -8,9 +8,7 @@ app.secret_key = "623762c54fa8b12dd34845ab69326520f4242be8363b80ba2240ca0a538770
 # ----- create endpoints -----
 @app.route("/")
 def home():
-    db = MySQLtool()
-    comments = db.Show_post()
-    return render_template("index.html", comments = comments)
+    return render_template("index.html")
 
 
 @app.route("/signup", methods = ["POST"])
@@ -49,7 +47,7 @@ def signin():
     if len(result) < 1 :
         return redirect('/error?message=帳號或密碼輸入錯誤')
     
-    session['id'] = result[0][0]
+    session['user_id'] = result[0][0]
     session['name'] = result[0][1]
     session['username'] = result[0][2]    
     return redirect(url_for('member'))
@@ -64,9 +62,11 @@ def signout():
 @app.route("/member")
 def member():
     try:
-        id = session['id']
+        id = session['user_id']
         name = session['name']
-        return render_template("member.html", name = name)
+        db = MySQLtool()
+        comments = db.Show_comment()
+        return render_template("member.html", name = name, comments = comments)
     except:
         return redirect(url_for('home'))
     
@@ -76,6 +76,16 @@ def error():
     msg = request.args['message']
     return render_template("error.html", error_message = msg)
 
+
+@app.route("/createMessage", methods = ["POST"])
+def create_message():
+    comment = request.form['comment']
+
+    # ----- use customized MySQLtool module to connecting, searching and creating new data -----
+    # Build MySQL connnection and add new comment
+    db = MySQLtool(id = session['user_id'], comment = comment)
+    db.Create_comment()
+    return redirect(url_for("member"))
 
 @app.route("/deleteMessage")
 def delete_message():

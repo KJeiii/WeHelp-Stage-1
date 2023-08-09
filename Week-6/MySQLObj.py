@@ -6,9 +6,11 @@ class MySQLtool:
         self.dbuser = "root"
         self.dbpassword = "Jae_84265" #完成後要刪掉，改成env 
         self.database = 'website'
+        self.id = kargs.get('id')
         self.name = kargs.get("name")  
         self.account = kargs.get("account")
         self.password = kargs.get("password")
+        self.comment = kargs.get("comment")
 
     def Signup(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
@@ -44,7 +46,7 @@ class MySQLtool:
             data = cursor.fetchall()
             return data
 
-    def Show_post(self):
+    def Show_comment(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor() 
 
@@ -54,8 +56,18 @@ class MySQLtool:
             data = cursor.fetchall()
             return data
 
+    def Create_comment(self):
+        with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
+            cursor = connection.cursor()  
+
+        # create string for inserting data
+            insert_string = "insert into message (member_id, content) values ({}, '{}')"
+            cursor.execute(insert_string.format(self.id, self.comment))
+            connection.commit()            
+ 
+
     # fucntion is not completed yet!!
-    def Delete_Post(self):
+    def Delete_comment(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor()
 

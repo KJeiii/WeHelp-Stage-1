@@ -8,18 +8,9 @@
 </head>
 <body>
     <div class="header">  {% block header %}{% endblock %}</div>
-    <form class="signup" action="/signup" method="post">
-        {% block signup %}{% endblock %}
-    </form>
-
-    <form class="signin" action="/signin" method="post">
-        {% block signin %}{% endblock %}
-    </form>
-
-    <div class="comment-div">
-        {% block comment %}{% endblock %}
-    </div>
-
+    {% block top %}{% endblock %}
+    {% block middle %}{% endblock %}
+    {% block buttom %}{% endblock %}
 
     <script src="../static/javascript.js"></script>
 </body>
