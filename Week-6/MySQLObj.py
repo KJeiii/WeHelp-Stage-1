@@ -52,7 +52,7 @@ class MySQLtool:
             cursor = connection.cursor() 
 
             # create string for selecting data
-            select_string = "select id,name,content from member inner join message on member.id = message.member_id"
+            select_string = "select member.id,name,content from member inner join message on member.id = message.member_id"
             cursor.execute(select_string)
             data = cursor.fetchall()
             return data
@@ -76,4 +76,4 @@ class MySQLtool:
             cursor.execute(drop_string)
 
 # test = MySQLtool()
-# print(test.Show_post())
+# print(test.Show_comment())
