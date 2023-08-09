@@ -8,7 +8,9 @@ app.secret_key = "623762c54fa8b12dd34845ab69326520f4242be8363b80ba2240ca0a538770
 # ----- create endpoints -----
 @app.route("/")
 def home():
-    return render_template("index.html")
+    db = MySQLtool()
+    comments = db.Show_post()
+    return render_template("index.html", comments = comments)
 
 
 @app.route("/signup", methods = ["POST"])

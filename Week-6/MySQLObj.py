@@ -6,9 +6,9 @@ class MySQLtool:
         self.dbuser = "root"
         self.dbpassword = "Jae_84265" #完成後要刪掉，改成env 
         self.database = 'website'
-        self.name = kargs.name
-        self.account = kargs.account
-        self.password = kargs.password
+        self.name = kargs.get("name")  
+        self.account = kargs.get("account")
+        self.password = kargs.get("password")
 
     def Signup(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
@@ -49,7 +49,7 @@ class MySQLtool:
             cursor = connection.cursor() 
 
             # create string for selecting data
-            select_string = "select name,content from member inner join message on name.id = message.member_id"
+            select_string = "select name,content from member inner join message on member.id = message.member_id"
             cursor.execute(select_string)
             data = cursor.fetchall()
             return data
@@ -62,4 +62,5 @@ class MySQLtool:
             drop_string = "delete from member where id = 7"
             cursor.execute(drop_string)
 
-test = MySQLtool("","","")
+# test = MySQLtool()
+# print(test.Show_post())

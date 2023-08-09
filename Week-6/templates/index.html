@@ -18,11 +18,10 @@
     <div class="submit-btn-div">
         <input type="submit" value="註冊" class = "submit-btn" onclick="Check('.signup-input')">
     </div>
-
     <hr>
 {% endblock %}
 
-{% block siginin %}
+{% block signin %}
     <div class="signin-title">登入系統</div>
     <div class="signin-subdiv">
         <label for="account-label">帳號</label>
@@ -35,11 +34,12 @@
     <div class="submit-btn-div">
         <input type="submit" value="登入" class = "submit-btn" onclick="Check('.signin-input')">
     </div>
+    <hr>
 {% endblock %}
 
 {% block comment %}
     {% for data in comments %}
-        <div class="comment-subdiv"><strong>data[0] : </strong>data[1]</div>
+        <div class="comment-subdiv"><strong>{{ data[0] }} : </strong> {{ data[1] }}</div>
     {% endfor %}
 
 {% endblock %}
