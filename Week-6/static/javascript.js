@@ -7,3 +7,11 @@ const Check = (cssSelector) => {
         };
     };
 };
+
+const DeleteCheck = () => {
+    if (confirm("是否刪除留言")) {
+        //pass
+    }else{
+        event.preventDefault();
+    };
+};
