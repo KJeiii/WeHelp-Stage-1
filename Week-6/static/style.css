@@ -63,3 +63,7 @@ a {
 .delete-img {
     width: 10px;
 }
+
+.delete-a {
+    margin: 0;
+}

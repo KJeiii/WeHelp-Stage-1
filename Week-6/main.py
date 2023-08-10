@@ -87,8 +87,8 @@ def create_message():
     db.Create_comment()
     return redirect(url_for("member"))
 
-@app.route("/deleteMessage")
-def delete_message():
+@app.route("/deleteMessage/<comment_id>")
+def delete_message(comment_id):
     pass
 
 
