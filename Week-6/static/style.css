@@ -54,3 +54,12 @@ a {
 .comment-subdiv {
     text-align: center;
 }
+/* 
+.delete-btn {
+    border: none;
+    color: white;
+} */
+
+.delete-img {
+    width: 10px;
+}
