@@ -89,7 +89,8 @@ def create_message():
 
 @app.route("/deleteMessage/<comment_id>")
 def delete_message(comment_id):
-    pass
+    db = MySQLtool(comment_id = comment_id)
+    db.Delete_comment()
 
 
 app.run(debug=True, port="3000")

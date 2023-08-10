@@ -12,15 +12,16 @@ class MySQLtool:
         self.account = kargs.get("account")
         self.password = kargs.get("password")
         self.comment = kargs.get("comment")
+        self.comment_id = kargs.get("comment_id")
 
     def Signup(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor()
 
             # create string for adding new data
-            insert_string = "insert into member (name, username, password) values ('{}', '{}', '{}')"
-            
-            cursor.execute(insert_string.format(self.name, self.account, self.password))
+            insert_string = "insert into member (name, username, password) values (%s, %s, %s)"
+            data = (self.name, self.account, self.password)
+            cursor.execute(insert_string, data)
             connection.commit()
 
     def Signup_check(self):
@@ -28,11 +29,12 @@ class MySQLtool:
             cursor = connection.cursor()
 
             # create string for selecting data
-            select_string = "select count(*) from member where username = '{}'"
-            cursor.execute(select_string.format(self.account))
-            data = cursor.fetchall()
+            select_string = "select count(*) from member where username = %s"
+            data = (self.account,)
+            cursor.execute(select_string, data)
+            result = cursor.fetchall()
 
-            if data[0][0] > 0 :
+            if result[0][0] > 0 :
                 return False
             else:
                 return True
@@ -42,10 +44,11 @@ class MySQLtool:
             cursor = connection.cursor() 
 
             # create string for selecting data
-            select_string = "select * from member where username = '{}' and password = '{}'"
-            cursor.execute(select_string.format(self.account, self.password))
-            data = cursor.fetchall()
-            return data
+            select_string = "select * from member where username = %s and password = %s"
+            data = (self.account, self.password)
+            cursor.execute(select_string, data)
+            result = cursor.fetchall()
+            return result
 
     def Show_comment(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
@@ -54,16 +57,17 @@ class MySQLtool:
             # create string for selecting data
             select_string = "select member.id,name,content from member inner join message on member.id = message.member_id"
             cursor.execute(select_string)
-            data = cursor.fetchall()
-            return data
+            result = cursor.fetchall()
+            return result
 
     def Create_comment(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor()  
 
         # create string for inserting data
-            insert_string = "insert into message (member_id, content) values ({}, '{}')"
-            cursor.execute(insert_string.format(self.id, self.comment))
+            insert_string = "insert into message (member_id, content) values (%s, %s)"
+            data = (self.id, self.comment)
+            cursor.execute(insert_string, data)
             connection.commit()            
  
 
@@ -72,8 +76,9 @@ class MySQLtool:
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
             cursor = connection.cursor()
 
-            drop_string = "delete from member where id = 7"
-            cursor.execute(drop_string)
+            drop_string = "delete from message where id = %s"
+            data = (self.comment_id,)
+            cursor.execute(drop_string, data)
 
 # test = MySQLtool()
 # print(test.Show_comment())
