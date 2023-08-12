@@ -41,7 +41,7 @@ class MySQLtool:
     
     def Signin(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
-            cursor = connection.cursor() 
+            cursor = connection.cursor(dictionary=True) 
 
             # create string for selecting data
             select_string = "select * from member where username = %s and password = %s"
@@ -52,10 +52,10 @@ class MySQLtool:
 
     def Show_comment(self):
         with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
-            cursor = connection.cursor() 
+            cursor = connection.cursor(dictionary=True) 
 
             # create string for selecting data
-            select_string = "select member.id,name,message.id,content from member inner join message on member.id = message.member_id"
+            select_string = "select * from member right join message on member.id = message.member_id"
             cursor.execute(select_string)
             result = cursor.fetchall()
             return result
@@ -78,3 +78,17 @@ class MySQLtool:
             data = (self.comment_id,)
             cursor.execute(drop_string, data)
             connection.commit()            
+
+    # # test dicionary cursor
+    # def Test(self):
+    #     with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
+    #         cursor = connection.cursor(dictionary=True)
+
+    #         select_string = "select * from member"
+    #         # data = (3,)
+    #         cursor.execute(select_string)
+    #         result = cursor.fetchall()
+    #         print(result)
+
+test = MySQLtool(account = 'abc', password = 'abc').Show_comment()
+print(test)

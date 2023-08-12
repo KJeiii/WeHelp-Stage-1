@@ -47,9 +47,9 @@ def signin():
     if len(result) < 1 :
         return redirect('/error?message=帳號或密碼輸入錯誤')
     
-    session['user_id'] = result[0][0]
-    session['name'] = result[0][1]
-    session['username'] = result[0][2]    
+    session['user_id'] = result[0]['id']
+    session['name'] = result[0]['name']
+    session['username'] = result[0]['username']    
     return redirect(url_for('member'))
 
 

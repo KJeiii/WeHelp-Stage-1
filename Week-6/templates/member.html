@@ -23,10 +23,10 @@
 {% block buttom %}
     {% for data in comments %}
             <div class="comment-subdiv">
-                <strong>{{ data[1] }} : </strong> {{ data[3] }} 
-                {% if data[0] == id %}
+                <strong>{{ data['name'] }} : </strong> {{ data['content'] }} 
+                {% if data['member_id'] == id %}
                 <button class="delete-btn">
-                    <a href="" class="delete-a" id="{{ data[2] }}" onclick="DeleteCheck(this)">
+                    <a href="" class="delete-a" id="{{ data['id'] }}" onclick="DeleteCheck(this)">
                         <img src="../static/delete-img.png" alt="delete-img" class="delete-img">
                     </a>
                 </button>
