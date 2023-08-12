@@ -78,17 +78,3 @@ class MySQLtool:
             data = (self.comment_id,)
             cursor.execute(drop_string, data)
             connection.commit()            
-
-    # # test dicionary cursor
-    # def Test(self):
-    #     with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
-    #         cursor = connection.cursor(dictionary=True)
-
-    #         select_string = "select * from member"
-    #         # data = (3,)
-    #         cursor.execute(select_string)
-    #         result = cursor.fetchall()
-    #         print(result)
-
-test = MySQLtool(account = 'abc', password = 'abc').Show_comment()
-print(test)

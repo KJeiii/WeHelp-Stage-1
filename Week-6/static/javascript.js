@@ -8,20 +8,22 @@ const Check = (cssSelector) => {
     };
 };
 
-const DeleteCheck = (element) => {
+const DeleteCheck = async (element) => {
     if (confirm("是否刪除留言")) {
         let comment_id = element.getAttribute("id");
 
-        fetch("/deleteMessage", {
+        let post = await fetch("/deleteMessage", {
             method : "POST",
             headers: {"Content-Type": "application/json"},
             body : JSON.stringify({
                 comment_id : comment_id
             })
-        })
-        .then(DeleteCheck(response)
-            //pass
-        )}else{
+        });
+        let response = await post.json(); 
+        // after fetch succeed, must to be ended with using json() or text() to parse response from fetch;
+        // otherwise, the program after fetch would not run.
+
+        }else{
         event.preventDefault();
     };
 };
