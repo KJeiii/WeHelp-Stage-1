@@ -18,8 +18,10 @@ const DeleteCheck = (element) => {
             body : JSON.stringify({
                 comment_id : comment_id
             })
-        });
-    }else{
+        })
+        .then(DeleteCheck(response)
+            //pass
+        )}else{
         event.preventDefault();
     };
 };
