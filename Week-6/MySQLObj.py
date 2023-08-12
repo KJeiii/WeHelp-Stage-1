@@ -78,7 +78,3 @@ class MySQLtool:
             data = (self.comment_id,)
             cursor.execute(drop_string, data)
             connection.commit()            
-
-
-# test = MySQLtool()
-# print(test.Show_comment())

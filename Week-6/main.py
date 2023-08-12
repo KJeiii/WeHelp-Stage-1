@@ -90,8 +90,6 @@ def create_message():
 @app.route("/deleteMessage", methods = ["POST"])
 def delete_message():
     comment_id = request.json['comment_id']
-    print("test")
-    print(comment_id)
     db = MySQLtool(comment_id = comment_id)
     db.Delete_comment()
     return redirect(url_for('member'))
