@@ -8,9 +8,17 @@ const Check = (cssSelector) => {
     };
 };
 
-const DeleteCheck = () => {
+const DeleteCheck = (element) => {
     if (confirm("是否刪除留言")) {
-        //pass
+        let comment_id = element.getAttribute("id");
+
+        fetch("/deleteMessage", {
+            method : "POST",
+            headers: {"Content-Type": "application/json"},
+            body : JSON.stringify({
+                comment_id : comment_id
+            })
+        });
     }else{
         event.preventDefault();
     };

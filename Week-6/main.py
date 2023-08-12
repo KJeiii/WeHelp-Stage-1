@@ -87,10 +87,13 @@ def create_message():
     db.Create_comment()
     return redirect(url_for("member"))
 
-@app.route("/deleteMessage/<comment_id>")
-def delete_message(comment_id):
+@app.route("/deleteMessage", methods = ["POST"])
+def delete_message():
+    comment_id = request.json['comment_id']
+    print("test")
+    print(comment_id)
     db = MySQLtool(comment_id = comment_id)
     db.Delete_comment()
-
+    return redirect(url_for('member'))
 
 app.run(debug=True, port="3000")
