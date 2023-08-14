@@ -77,4 +77,16 @@ class MySQLtool:
             drop_string = "delete from message where id = %s"
             data = (self.comment_id,)
             cursor.execute(drop_string, data)
-            connection.commit()            
+            connection.commit()     
+
+
+    def Search_member(self):      
+        with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
+            cursor = connection.cursor(dictionary=True)
+
+            # create string for selecting data
+            select_string = "select * from member where username = %s"
+            data = (self.account,)
+            cursor.execute(select_string, data)
+            result = cursor.fetchall()
+            return result

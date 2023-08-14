@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, session
+from flask import Flask, render_template, redirect, url_for, request, session, jsonify
 from MySQLObj import MySQLtool
 
 # ----- create Flask server -----
@@ -93,5 +93,22 @@ def delete_message():
     db = MySQLtool(comment_id = comment_id)
     db.Delete_comment()
     return redirect(url_for('member'))
+
+@app.route("/api/member")
+def member_info():
+    try:
+        current_username = session['username'] #check login status
+        search_username = request.args['username'] #query string from GET method
+        print(search_username)
+        db = MySQLtool(account = search_username)
+        result = db.Search_member()
+        show_info = {'id' : result[0]['id'],
+                'name' : result[0]['name'],
+                'username' : result[0]['username']
+                }
+        print(show_info)
+        return jsonify(data = show_info)
+    except:
+        return jsonify(data = None) #none will be transformed to null after jsonify
 
 app.run(debug=True, port="3000")
