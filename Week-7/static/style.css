@@ -41,6 +41,26 @@ body {
     justify-content: center;
     margin: 10px 0 0 40px;
 }
+
+.search-result {
+    visibility: hidden;
+    text-align: center;
+}
+
+.search-input {
+    margin: 0;
+    pad: 0;
+}
+
+.search-btn {
+    margin-left: 10px;
+}
+
+.search-a {
+    margin: 0;
+    text-decoration: none;
+}
+
 .submit-btn-div {
     display: flex;
     justify-content: center;
@@ -64,11 +84,6 @@ a {
 .comment-subdiv {
     text-align: center;
 }
-/* 
-.delete-btn {
-    border: none;
-    color: white;
-} */
 
 .delete-img {
     width: 10px;

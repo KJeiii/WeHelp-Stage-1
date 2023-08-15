@@ -6,13 +6,15 @@
     <a href="{{ url_for('signout') }}">登出系統</a>
     <hr>
 
-    <form action="/member">
-        <div class="search-title"><strong>查詢會員姓名</strong></div>
-        <div class="search-subdiv">
-            <input type="text" class="search-input" name="search">
-            <input type="submit" value="查詢" class = "submit-btn" onclick="Check('')">
-        </div>   
-    </form>
+    <div class="search-title"><strong>查詢會員姓名</strong></div>
+    <div class="search-subdiv">
+        <input type="text" class="search-input" name="username">
+        <button class="search-btn">
+            <a href="" class="search-a" onclick="SearchMember()">查詢</a>
+        </button>
+    </div>   
+    
+    <div class="search-result"></div>
     <hr>
 {% endblock %}
 

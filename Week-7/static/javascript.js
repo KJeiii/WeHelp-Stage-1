@@ -27,3 +27,18 @@ const DeleteCheck = async (element) => {
         event.preventDefault();
     };
 };
+
+const SearchMember =  async () => {
+    let searchUsername = document.querySelector(".search-input").value;
+
+    let search = await fetch("/api/member?" + new URLSearchParams({
+        username : searchUsername
+    }));
+
+    let response = await search.json();
+    let result = await response['data'];
+
+    let searchResult = document.querySelector(".search-result");
+    searchResult.innerHTML = result['name'] + "(" + result['username'] + ")";
+    searchResult.style.visibility = "visible";
+};
