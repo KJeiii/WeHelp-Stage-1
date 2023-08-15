@@ -5,6 +5,15 @@
     <div class="signup-title">{{ name }}，歡迎登入系統</div>
     <a href="{{ url_for('signout') }}">登出系統</a>
     <hr>
+
+    <form action="/member">
+        <div class="search-title"><strong>查詢會員姓名</strong></div>
+        <div class="search-subdiv">
+            <input type="text" class="search-input" name="search">
+            <input type="submit" value="查詢" class = "submit-btn" onclick="Check('')">
+        </div>   
+    </form>
+    <hr>
 {% endblock %}
 
 {% block middle %}
