@@ -90,3 +90,13 @@ class MySQLtool:
             cursor.execute(select_string, data)
             result = cursor.fetchall()
             return result
+
+    def Update_name(self):
+        with connect(host = self.dbhost, user = self.dbuser, password = self.dbpassword, database = self.database) as connection:
+            cursor = connection.cursor(dictionary=True)
+
+            # update string for update name
+            alter_string = "update member set name = %s where id = %s"
+            data = (self.name, self.id)
+            cursor.execute(alter_string, data)
+            connection.commit()

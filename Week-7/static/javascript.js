@@ -74,12 +74,19 @@ const UpdateName = async () => {
 
         try {
             let result = response['ok'];
+            // change name in top welcome message
+            let welcomeMsg = document.querySelector(".signup-title");
+            welcomeMsg.innerHTML = updateName + "，歡迎登入系統";
+
+            // show update success message
             let updateResult = document.querySelector(".update-result");
             updateResult.innerHTML = "更新成功";
             updateResult.style.visibility = "visible";
         } 
         catch {
             let result = response['error'];
+
+            // show update success message
             let updateResult = document.querySelector(".update-result");
             updateResult.innerHTML = "更新失敗";
             updateResult.style.visibility = "visible";

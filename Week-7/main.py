@@ -96,8 +96,20 @@ def delete_message():
     return redirect(url_for('member'))
 
 
-@app.route("/api/member")
+@app.route("/api/member", methods = ["GET", "PATCH"])
 def member_info():
+    # Update name from PATCH method by JS fetch()
+    if request.method == "PATCH":
+        try:
+            current_user_id = session['user_id']
+            update_name = request.json["name"]
+            db = MySQLtool(id = current_user_id, name = update_name)
+            return jsonify(ok = True)
+        
+        except:
+            return jsonify(error = True)
+        
+    # Search name from GET method by JS fetch()
     try:
         current_username = session['username'] #check login status
 
