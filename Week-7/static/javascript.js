@@ -38,7 +38,6 @@ const SearchMember =  async () => {
 
         let response = await search.json();
         let result = await response['data'];
-        console.log(result);
 
         // if get null data from api, return "查無此人"; 
         // otherwise, show the data.
