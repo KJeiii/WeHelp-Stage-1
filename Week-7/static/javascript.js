@@ -38,19 +38,21 @@ const SearchMember =  async () => {
 
         let response = await search.json();
         let result = await response['data'];
+        console.log(result);
 
         // if get null data from api, return "查無此人"; 
         // otherwise, show the data.
-        if ( result === "null" ) {
+        if ( result === null ) {
             let searchResult = document.querySelector(".search-result");
             searchResult.innerHTML = "查無此人";
             searchResult.style.visibility = "visible";
 
+        }
+        else {
+            let searchResult = document.querySelector(".search-result");
+            searchResult.innerHTML = result['name'] + " (" + result['username'] + ")";
+            searchResult.style.visibility = "visible";
         };
-
-        let searchResult = document.querySelector(".search-result");
-        searchResult.innerHTML = result['name'] + " (" + result['username'] + ")";
-        searchResult.style.visibility = "visible";
 
     } catch (error) {
         console.log(error);
