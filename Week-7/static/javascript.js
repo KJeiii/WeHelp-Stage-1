@@ -56,3 +56,22 @@ const SearchMember =  async () => {
         console.log(error);
     };
 };
+
+const UpdateName = async () => {
+
+    try {
+        let update = await fetch("/api/member", {
+            method : "PATCH",
+            headers : {"Content-Type" : "application/json"},
+            body : JSON.stringify({
+                "name" : "test"
+            })
+        });
+
+        let response = await update.json();
+        console.log(response);
+
+    } catch (error) {
+        console.log(error);
+    };
+};

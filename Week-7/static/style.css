@@ -19,11 +19,6 @@ body {
     margin-top: 10px;
 }
 
-.search-title {
-    text-align: center;
-    margin-top: 10px;
-}
-
 .signup-subdiv {
     display: flex;
     justify-content: center;
@@ -42,6 +37,11 @@ body {
     margin: 10px 0 0 40px;
 }
 
+.search-title {
+    text-align: center;
+    margin-top: 10px;
+}
+
 .search-result {
     visibility: hidden;
     text-align: center;
@@ -56,11 +56,35 @@ body {
     margin-left: 10px;
 }
 
-.search-a {
-    margin: 0;
-    text-decoration: none;
+.update-title {
+    text-align: center;
+    margin-top: 10px;
 }
 
+.update-subdiv {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 40px;
+}
+
+.update-result {
+    visibility: hidden;
+    text-align: center;
+}
+
+.update-input {
+    margin: 0;
+    pad: 0;
+}
+
+.update-btn {
+    margin-left: 10px;
+}
+
+.update-result {
+    visibility: hidden;
+    text-align: center;
+}
 .submit-btn-div {
     display: flex;
     justify-content: center;
