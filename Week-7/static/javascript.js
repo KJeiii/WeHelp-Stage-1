@@ -58,20 +58,34 @@ const SearchMember =  async () => {
 };
 
 const UpdateName = async () => {
+    let updateName = document.querySelector(".update-input").value;
 
     try {
         let update = await fetch("/api/member", {
             method : "PATCH",
             headers : {"Content-Type" : "application/json"},
             body : JSON.stringify({
-                "name" : "test"
+                name : updateName
             })
         });
 
         let response = await update.json();
         console.log(response);
 
-    } catch (error) {
+        try {
+            let result = response['ok'];
+            let updateResult = document.querySelector(".update-result");
+            updateResult.innerHTML = "更新成功";
+            updateResult.style.visibility = "visible";
+        } 
+        catch {
+            let result = response['error'];
+            let updateResult = document.querySelector(".update-result");
+            updateResult.innerHTML = "更新失敗";
+            updateResult.style.visibility = "visible";
+        };
+    } 
+    catch (error) {
         console.log(error);
     };
 };
