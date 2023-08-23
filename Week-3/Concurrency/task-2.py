@@ -45,6 +45,7 @@ for n in range(3):
 
         # create a string conssiting of title,credit,date
         post_data = f"{title},{credit},{post_date}"
+        print(post_data)
 
         # movies_data append post_data
         movies_data.append(post_data)
